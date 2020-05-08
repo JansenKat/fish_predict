@@ -11,7 +11,10 @@ def predict_from_csv(path_to_csv):
 
     df = pd.read_csv(path_to_csv)
     X, y = prep_data(df)
-
+    
+    poly_model = load("poly.joblib")
+    
+    poly_features = PolynomialFeatures(degree=2)
     X_poly = poly_features.fit_transform(X)
 
     predictions = poly_model.predict(X_poly)
@@ -19,7 +22,7 @@ def predict_from_csv(path_to_csv):
     return mean_squared_error(y,predictions)
 
 if __name__ == "__main__":
-    predictions = predict_from_csv("fish_participant.csv")
+    predictions = predict_from_csv("fish_holdout_demo.csv")
     print(predictions)
     
 ######
