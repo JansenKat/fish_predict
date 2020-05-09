@@ -9,12 +9,13 @@ def prep_data(df):
     df['Species'] = spe
 
     df = df.assign(lw=df['Length3']*df['Width'])\
-    .assign(lhw=df['Length3']+df['Height']+df['Width'])\
-    .assign(ratio=(df['Length3']/df['Length2'])*df['Width'])
+        .assign(lhw=df['Length3']+df['Height']+df['Width'])\
+        .assign(ratio=(df['Length3']/df['Length2'])*df['Width'])\
+        .assign(v=4/3*np.pi*df['Height']/2*df['Width']/2*df['Length3']/2)
 
-    X = df[['Species','Height','Length2','Width','lhw','ratio']].values
+    X = df[['Species','Height','Width','Length1','Length2','Length3','lhw','ratio','lw','v']]
     y = df['Weight'].values
     
-    poly_features = PolynomialFeatures(degree=2)
+    # poly_features = PolynomialFeatures(degree=2)
 
     return X, y
