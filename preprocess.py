@@ -15,7 +15,5 @@ def prep_data(df):
 
     X = df[['Species','Height','Width','Length1','Length2','Length3','lhw','ratio','lw','v']]
     y = df['Weight'].values
-    
-    # poly_features = PolynomialFeatures(degree=2)
 
     return X, y

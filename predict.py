@@ -1,7 +1,6 @@
 ### YOU WRITE THIS ###
 from joblib import load
 from preprocess import prep_data
-from sklearn.preprocessing import PolynomialFeatures
 import pandas as pd
 from sklearn.metrics import mean_squared_error
 
@@ -9,11 +8,6 @@ def predict_from_csv(path_to_csv):
 
     df = pd.read_csv(path_to_csv)
     X, y = prep_data(df)
-    
-    # poly_model = load("poly.joblib")
-    
-    # poly_features = PolynomialFeatures(degree=2)
-    # X_poly = poly_features.fit_transform(X)
 
     rf = load("rf.joblib")
 
