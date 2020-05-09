@@ -12,7 +12,7 @@ def prep_data(df):
     .assign(lhw=df['Length3']+df['Height']+df['Width'])\
     .assign(ratio=(df['Length3']/df['Length2'])*df['Width'])
 
-    X = df[['Species','Length2','Height','Width','lw','lhw','ratio']].values
+    X = df[['Species','Height','Length2','Width','lhw','ratio']].values
     y = df['Weight'].values
     
     poly_features = PolynomialFeatures(degree=2)
