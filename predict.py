@@ -9,9 +9,9 @@ def predict_from_csv(path_to_csv):
     df = pd.read_csv(path_to_csv)
     X, y = prep_data(df)
 
-    rf = load("rf.joblib")
+    model = load("gbr.joblib")
 
-    predictions = rf.predict(X)
+    predictions = model.predict(X)
 
     return mean_squared_error(y,predictions)
 

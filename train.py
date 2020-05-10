@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from joblib import dump
 from preprocess import prep_data
 
@@ -7,7 +7,7 @@ df = pd.read_csv("fish_participant.csv")
 
 X, y = prep_data(df)
 
-rf = RandomForestRegressor()
-rf.fit(X,y)
+gbr = GradientBoostingRegressor()
+gbr.fit(X,y)
 
-dump(rf, "rf.joblib")
+dump(gbr, "gbr.joblib")
